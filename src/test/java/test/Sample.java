@@ -1,10 +1,13 @@
 package test;
 
+import org.testng.annotations.Test;
+
 public class Sample {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	@Test
+	public void sample()
+	{
+		System.out.println("Jenkins Build Run");
 	}
 
 }
