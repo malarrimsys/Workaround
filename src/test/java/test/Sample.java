@@ -1,7 +1,11 @@
 package test;
 
+import java.io.File;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +16,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class Sample {
-
+	Sample()
+	{
+		
+	}
 	@Test
-	public void sample()
+	public void sample() throws InterruptedException
 	
 	
 	{
@@ -33,15 +40,16 @@ public class Sample {
 		JavascriptExecutor js =(JavascriptExecutor) driver;
 	
 		driver.get("https://intuitivesurgical.dev-rimsys.com/login");
+		Thread.sleep(2000);
 		System.out.println("*************************** "+driver.getTitle());
-		
+		 TakesScreenshot scrShot =((TakesScreenshot)driver);
 //		WebElement username =driver.findElement(By.id("username"));
 //		WebElement pwd =driver.findElement(By.id("password"));
 //		username.sendKeys("surgical@yopmail.com");
 //		pwd.sendKeys("Surgical2@123456");
 		js.executeScript("document.getElementById('username').value='surgical@yopmail.com';" );
 		js.executeScript("document.getElementById('password').value='Surgical2@123456';" );
-		
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
 			
 		
 	}
