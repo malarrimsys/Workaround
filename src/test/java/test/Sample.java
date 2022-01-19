@@ -1,7 +1,9 @@
 package test;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
@@ -27,9 +29,16 @@ public class Sample {
 
 		System.out.println("Jenkins Build Run");
 		WebDriver driver =new ChromeDriver(options);
-		driver.get("https://www.google.com/");
+		
+		JavascriptExecutor js =(JavascriptExecutor) driver;
+	
+		driver.get("https://intuitivesurgical.dev-rimsys.com/login");
 		System.out.println("*************************** "+driver.getTitle());
-		driver.findElement(By.xpath("//input[@class='gLFyf gsfi']")).sendKeys("RIMSYS");
+		
+		WebElement username =driver.findElement(By.id("username"));
+		WebElement pwd =driver.findElement(By.id("password"));
+		username.sendKeys("surgical@yopmail.com");
+		pwd.sendKeys("Surgical2@123456");
 	}
 
 }
