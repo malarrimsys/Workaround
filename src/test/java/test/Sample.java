@@ -19,10 +19,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class Sample {
-	Sample()
-	{
-		
-	}
+	public WebDriver driver;
+	
 	@Test
 	public void sample() throws InterruptedException
 	
@@ -38,7 +36,7 @@ public class Sample {
 		options.addArguments("--no-sandbox"); // Bypass OS security model
 
 		System.out.println("Jenkins Build Run");
-		WebDriver driver =new ChromeDriver(options);
+		 driver =new ChromeDriver(options);
 		
 		JavascriptExecutor js =(JavascriptExecutor) driver;
 	
