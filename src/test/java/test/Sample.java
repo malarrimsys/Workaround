@@ -35,10 +35,15 @@ public class Sample {
 		driver.get("https://intuitivesurgical.dev-rimsys.com/login");
 		System.out.println("*************************** "+driver.getTitle());
 		
-		WebElement username =driver.findElement(By.id("username"));
-		WebElement pwd =driver.findElement(By.id("password"));
-		username.sendKeys("surgical@yopmail.com");
-		pwd.sendKeys("Surgical2@123456");
+//		WebElement username =driver.findElement(By.id("username"));
+//		WebElement pwd =driver.findElement(By.id("password"));
+//		username.sendKeys("surgical@yopmail.com");
+//		pwd.sendKeys("Surgical2@123456");
+		js.executeScript("document.getElementById('username').value='surgical@yopmail.com';" );
+		js.executeScript("document.getElementById('password').value='Surgical2@123456';" );
+		
+			
+		
 	}
 
 }
