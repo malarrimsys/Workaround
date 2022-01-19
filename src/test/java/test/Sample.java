@@ -18,7 +18,7 @@ public class Sample {
 		WebDriverManager.chromedriver().setup();
 		System.getProperty("webdriver.chrome.driver", "chromedriver");
 		ChromeOptions options = new ChromeOptions();
-		//options.addArguments("headless");// headless -> no browser window. needed for jenkins
+		options.addArguments("headless");// headless -> no browser window. needed for jenkins
 		options.addArguments("disable-infobars"); // disabling infobars
 		options.addArguments("--disable-extensions");// disabling extensions
 		options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
@@ -27,7 +27,7 @@ public class Sample {
 		System.out.println("Jenkins Build Run");
 		WebDriver driver =new ChromeDriver(options);
 		driver.get("https://www.google.com/");
-		System.out.println("***************************"+driver.getTitle());
+		System.out.println("*************************** "+driver.getTitle());
 	}
 
 }
