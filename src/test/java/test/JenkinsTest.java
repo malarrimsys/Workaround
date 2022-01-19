@@ -37,7 +37,7 @@ public class JenkinsTest {
 	
 	{
 		WebDriverManager.chromedriver().setup();
-		System.getProperty("webdriver.chrome.driver", "/bin/chromedriver");
+		System.getProperty("webdriver.chrome.driver", "chromedriver");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");// headless -> no browser window. needed for jenkins
 		options.addArguments("disable-infobars"); // disabling infobars
