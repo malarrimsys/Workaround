@@ -27,7 +27,7 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class Sample {
+public class JenkinsTest {
 	public WebDriver driver;
 	
 	@SuppressWarnings("rawtypes")
