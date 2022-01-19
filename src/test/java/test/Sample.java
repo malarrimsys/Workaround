@@ -1,7 +1,10 @@
 package test;
 
 import java.io.File;
+import java.io.IOException;
+import java.sql.Timestamp;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -40,17 +43,23 @@ public class Sample {
 		JavascriptExecutor js =(JavascriptExecutor) driver;
 	
 		driver.get("https://intuitivesurgical.dev-rimsys.com/login");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		System.out.println("*************************** "+driver.getTitle());
-		 TakesScreenshot scrShot =((TakesScreenshot)driver);
-//		WebElement username =driver.findElement(By.id("username"));
-//		WebElement pwd =driver.findElement(By.id("password"));
-//		username.sendKeys("surgical@yopmail.com");
-//		pwd.sendKeys("Surgical2@123456");
-		js.executeScript("document.getElementById('username').value='surgical@yopmail.com';" );
-		js.executeScript("document.getElementById('password').value='Surgical2@123456';" );
-		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+		//TakesScreenshot scrShot =((TakesScreenshot)driver);
+		WebElement username =driver.findElement(By.id("username"));
+		WebElement pwd =driver.findElement(By.id("password"));
+		username.sendKeys("surgical@yopmail.com");
+		pwd.sendKeys("Surgical2@123456");
+//		js.executeScript("document.getElementById('username').value='surgical@yopmail.com';" );
+//		js.executeScript("document.getElementById('password').value='Surgical2@123456';" );
+		
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		try {
+			FileUtils.copyFile(scrFile, new File("Screenshot"+new Timestamp(System.currentTimeMillis()).toString() +".png"));
 			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
