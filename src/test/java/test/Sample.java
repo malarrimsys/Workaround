@@ -1,5 +1,6 @@
 package test;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -28,6 +29,7 @@ public class Sample {
 		WebDriver driver =new ChromeDriver(options);
 		driver.get("https://www.google.com/");
 		System.out.println("*************************** "+driver.getTitle());
+		driver.findElement(By.xpath("//input[@class='gLFyf gsfi']")).sendKeys("RIMSYS");
 	}
 
 }
