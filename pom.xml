@@ -80,8 +80,13 @@
 		<artifactId>jackson-databind</artifactId>
 		<version>2.13.0</version>
 	</dependency>
-
-
+  
+	<!-- https://mvnrepository.com/artifact/org.jenkins-ci.plugins/git 
+	<dependency>
+	    <groupId>org.jenkins-ci.plugins</groupId>
+	    <artifactId>git</artifactId>
+	    <version>3.6.0</version>
+	</dependency>-->
 
 		
   </dependencies>
