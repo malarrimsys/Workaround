@@ -49,7 +49,7 @@ public class JenkinsTest {
 		 driver =new ChromeDriver(options);
 		
 		JavascriptExecutor js =(JavascriptExecutor) driver;
-	
+		driver.manage().window().maximize();
 		driver.get("https://intuitivesurgical.dev-rimsys.com/login");
 		Thread.sleep(4000);
 		System.out.println("*************************** "+driver.getTitle());
