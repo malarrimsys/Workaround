@@ -44,7 +44,7 @@ public class JenkinsTest {
 		options.addArguments("--disable-extensions");// disabling extensions
 		options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
 		options.addArguments("--no-sandbox"); // Bypass OS security model
-
+		options.addArguments("--disable-features=VizDisplayCompositor");
 		System.out.println("Jenkins Build Run");
 		 driver =new ChromeDriver(options);
 		
