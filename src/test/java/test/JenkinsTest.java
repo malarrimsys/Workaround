@@ -39,11 +39,12 @@ public class JenkinsTest {
 		WebDriverManager.chromedriver().setup();
 		System.getProperty("webdriver.chrome.driver", "chromedriver");
 		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox"); // Bypass OS security model
 		options.addArguments("--headless");// headless -> no browser window. needed for jenkins
 		options.addArguments("disable-infobars"); // disabling infobars
 		options.addArguments("--disable-extensions");// disabling extensions
 		options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
-		options.addArguments("--no-sandbox"); // Bypass OS security model
+		
 		options.addArguments("--disable-features=VizDisplayCompositor");
 		System.out.println("Jenkins Build Run");
 		 driver =new ChromeDriver(options);
