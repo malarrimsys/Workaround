@@ -65,6 +65,11 @@ public class JenkinsTest {
 		WebElement pwd =driver.findElement(By.id("password"));
 		foo.sendKeys("surgical@yopmail.com");
 		pwd.sendKeys("Surgical2@123456");
+	
+		Thread.sleep(2000);
+		WebElement signin = driver.findElement(By.xpath("(//button[normalize-space()='Sign-In'])[1]"));
+
+		signin.click();
 		
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
@@ -73,12 +78,6 @@ public class JenkinsTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		Thread.sleep(2000);
-		WebElement signin = driver.findElement(By.xpath("(//button[normalize-space()='Sign-In'])[1]"));
-
-		signin.click();
-		
 		
 	}
 	
