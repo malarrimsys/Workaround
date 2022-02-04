@@ -17,11 +17,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeTest;
+
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -30,17 +29,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class JenkinsTest {
 	public WebDriver driver;
 	
-	@SuppressWarnings("rawtypes")
+
 	@Test
 	public void sample() throws InterruptedException
-	
-	
 	{
 		WebDriverManager.chromedriver().setup();
 		System.getProperty("webdriver.chrome.driver", "chromedriver");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox"); // Bypass OS security model
-		options.setHeadless(true);
+//		options.setHeadless(true);
 //		//options.addArguments("--headless");// headless -> no browser window. needed for jenkins
 		options.addArguments("disable-infobars"); // disabling infobars
 		options.addArguments("--disable-extensions");// disabling extensions
@@ -64,14 +61,10 @@ public class JenkinsTest {
 			public WebElement apply(WebDriver driver) {
 			return driver.findElement(By.id("username"));
 			}});
-//		WebDriverWait web_element = new WebDriverWait(driver,100); 
-//		web_element.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
-		//WebElement username =driver.findElement(By.id("username"));
+
 		WebElement pwd =driver.findElement(By.id("password"));
 		foo.sendKeys("surgical@yopmail.com");
 		pwd.sendKeys("Surgical2@123456");
-//		js.executeScript("document.getElementById('username').value='surgical@yopmail.com';" );
-//		js.executeScript("document.getElementById('password').value='Surgical2@123456';" );
 		
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
@@ -81,6 +74,26 @@ public class JenkinsTest {
 			e.printStackTrace();
 		}
 		
+		Thread.sleep(2000);
+		WebElement signin = driver.findElement(By.xpath("(//button[normalize-space()='Sign-In'])[1]"));
+
+		signin.click();
+		System.out.println("In the Dashboard Page********"+driver.getTitle());
+		System.out.println("In the Dashboard Page********"+driver.getCurrentUrl());
+		
+	}
+	
+	@Test(priority=2)
+	public void navigateToProducts()
+	{
+		WebElement products =driver.findElement((By.xpath("(//li[@class='dropdown'])[1]")));
+		products.click();
 	}
 
 }
+
+//WebDriverWait web_element = new WebDriverWait(driver,100); 
+//web_element.until(ExpectedConditions.visibilityOfElementLocated(By.id("username")));
+//WebElement username =driver.findElement(By.id("username"));
+//js.executeScript("document.getElementById('username').value='surgical@yopmail.com';" );
+//js.executeScript("document.getElementById('password').value='Surgical2@123456';" );
