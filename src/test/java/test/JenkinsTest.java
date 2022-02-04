@@ -37,7 +37,7 @@ public class JenkinsTest {
 		System.getProperty("webdriver.chrome.driver", "chromedriver");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox"); // Bypass OS security model
-//		options.setHeadless(true);
+		options.setHeadless(true);
 //		//options.addArguments("--headless");// headless -> no browser window. needed for jenkins
 		options.addArguments("disable-infobars"); // disabling infobars
 		options.addArguments("--disable-extensions");// disabling extensions
@@ -78,7 +78,6 @@ public class JenkinsTest {
 		WebElement signin = driver.findElement(By.xpath("(//button[normalize-space()='Sign-In'])[1]"));
 
 		signin.click();
-		Thread.sleep(2000);
 		
 		
 	}
