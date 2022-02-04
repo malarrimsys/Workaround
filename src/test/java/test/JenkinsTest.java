@@ -30,7 +30,7 @@ public class JenkinsTest {
 	public WebDriver driver;
 	
 
-	@Test
+	@Test(priority=1)
 	public void sample() throws InterruptedException
 	{
 		WebDriverManager.chromedriver().setup();
@@ -78,16 +78,16 @@ public class JenkinsTest {
 		WebElement signin = driver.findElement(By.xpath("(//button[normalize-space()='Sign-In'])[1]"));
 
 		signin.click();
-		System.out.println("In the Dashboard Page********"+driver.getTitle());
-		System.out.println("In the Dashboard Page********"+driver.getCurrentUrl());
+		Thread.sleep(2000);
+		
 		
 	}
 	
 	@Test(priority=2)
-	public void navigateToProducts()
+	public void navigateToStandards()
 	{
-		WebElement products =driver.findElement((By.xpath("(//li[@class='dropdown'])[1]")));
-		products.click();
+		WebElement std =driver.findElement((By.xpath("//li[@class='dropdown']//a[contains(@href,'/my-standards')]")));
+		std.click();
 	}
 
 }
