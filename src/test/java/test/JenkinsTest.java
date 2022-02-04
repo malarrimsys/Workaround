@@ -29,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class JenkinsTest {
 	public WebDriver driver;
 	
-
+	
 	@Test(priority=1)
 	public void sample() throws InterruptedException
 	{
@@ -82,7 +82,7 @@ public class JenkinsTest {
 		
 	}
 	
-	@Test(priority=2)
+	//@Test(priority=2)
 	public void navigateToStandards()
 	{
 		WebElement std =driver.findElement((By.xpath("//li[@class='dropdown']//a[contains(@href,'/my-standards')]")));
