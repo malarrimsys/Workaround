@@ -70,7 +70,7 @@ public class JenkinsTest {
 		WebElement signin = driver.findElement(By.xpath("(//button[normalize-space()='Sign-In'])[1]"));
 
 		signin.click();
-		
+		Thread.sleep(2000);
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File("Screenshot"+new Timestamp(System.currentTimeMillis()).toString() +".png"));
